@@ -136,15 +136,40 @@ public class Control {
     
 
     private boolean validarCedEstudiante(String cedula) {
-        return false;
+        boolean  existEstudiante = false;
+        for (Estudiante estudiante : estudiantes) {
+            if(estudiante.getCedula().equals(cedula)){
+                existEstudiante = true;
+            }
+        }
+        
+       return existEstudiante; 
     }
 
-    private boolean validarCodMateria(String codigo) {
-        return false;
+    private boolean validarMateriaPorEstudiante(String codigoMateria,String cedula) {
+        Estudiante estudiante = obtenerEstudiantPorCedula(cedula);
+        return estudiante.validarCodMateria(codigoMateria);
+        
     }
 
-    private void agregarMateria(String cedula, Materia materia) {
-
+    private void agregarMateriaPorEstudiante(String cedula, String codigoMateria,String nombreMateria) {
+        Estudiante estudiante = obtenerEstudiantPorCedula(cedula);
+        estudiante.inscribirMateria(codigoMateria,nombreMateria);
+    }
+    
+    private Estudiante obtenerEstudiantPorCedula(String cedula)
+    {
+        for (Estudiante estudiante : estudiantes) {
+            if (estudiante.getCedula().endsWith(cedula)) {
+                return  estudiante;
+            }           
+        }
+        return  null;
+    }
+    
+    private void agregarEstudiante(String cedula, String nombre)
+    {
+        this.estudiantes.add(new Estudiante(cedula,nombre));
     }
 
 }
