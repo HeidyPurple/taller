@@ -6,6 +6,7 @@
 package control;
 
 import java.util.ArrayList;
+import modelo.Estudiante;
 import modelo.Materia;
 
 /**
@@ -16,30 +17,42 @@ import modelo.Materia;
  * @version 1.0.0
  */
 public class Control {
-    
-    public void cargarArchivo(String rutaArchivo){
-        
+
+    private ArrayList<Estudiante> estudiantes;
+
+    public Control() {
+        estudiantes = new  ArrayList<>();
     }
     
-    public ArrayList totalMateriasPorEstudiantes(){
-      return null;  
-    }
     
-    private boolean validarCedEstudiante(String cedula){
+
+    public void cargarArchivo(String rutaArchivo) {
+
+    }
+
+    public ArrayList totalMateriasPorEstudiante() {
+        ArrayList<Integer> totalMateriasPorEstudiante = new ArrayList<>();
+        estudiantes.forEach((estudiante) ->
+                totalMateriasPorEstudiante.add(
+                        estudiante.cantidadMateriasInscritas()));
+        return totalMateriasPorEstudiante;
+
+    }
+
+    private boolean validarCedEstudiante(String cedula) {
         return false;
     }
-    
-    private  boolean validarCodMateria(String codigo){
+
+    private boolean validarCodMateria(String codigo) {
         return false;
     }
-    
-    private ArrayList validarDatosArchivo(String info){
+
+    private ArrayList validarDatosArchivo(String info) {
         return null;
     }
-    
-    private void agregarMateria(String cedula, Materia materia){
-        
+
+    private void agregarMateria(String cedula, Materia materia) {
+
     }
-    
-    
+
 }
