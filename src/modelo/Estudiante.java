@@ -9,7 +9,9 @@ import java.util.ArrayList;
 /**
  *
  * @author arroy
- * @version 1
+ * @version 20211201
+ * @since 1.0
+ * @version 1.0.0
  */
 public class Estudiante {
     private String cedula;

@@ -11,7 +11,9 @@ import modelo.Materia;
 /**
  *
  * @author jeffr
- * version 1
+ * @version 20211201
+ * @since 1.0
+ * @version 1.0.0
  */
 public class Control {
     
