@@ -77,7 +77,8 @@ public class Control {
     }
 
     private void agregarMateria(String cedula, Materia materia) {
-
+        Estudiante estudiante = obtenerEstudiantPorCedula(cedula);
+        estudiante.inscribirMateria(materia);
     }
     
     private Estudiante obtenerEstudiantPorCedula(String cedula)
@@ -88,6 +89,11 @@ public class Control {
             }           
         }
         return  null;
+    }
+    
+    private void agregarEstudiante(String cedula, String nombre)
+    {
+        this.estudiantes.add(new Estudiante(cedula,nombre));
     }
 
 }
