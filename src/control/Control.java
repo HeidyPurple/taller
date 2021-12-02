@@ -7,6 +7,8 @@ package control;
 
 import java.util.ArrayList;
 import modelo.Materia;
+import persistencia.CargarArchivo;
+import persistencia.CargarArchivoException;
 
 /**
  *
@@ -16,8 +18,25 @@ import modelo.Materia;
  * @version 1.0.0
  */
 public class Control {
-    
-    public void cargarArchivo(String rutaArchivo){
+     
+    CargarArchivo cargaArchivo = new CargarArchivo();
+     
+    public void cargarArchivo(String rutaArchivo) throws CargarArchivoException{
+        
+        String listaArchivo;
+        
+        try {
+            listaArchivo = this.cargaArchivo.cargarArchivo(rutaArchivo);
+            
+            String[] listaPalabra = listaArchivo.split("\\;");
+            
+        for (int i = 0; i < listaPalabra.length; i++) {
+            
+        }
+        
+        } catch (Exception e) {
+            throw new CargarArchivoException("No se encontro la ruta especidicada");
+        }
         
     }
     

@@ -55,7 +55,7 @@ public class CargarArchivo {
             String linea;
             
             while ((linea = lector.readLine()) != null) {
-                texto= texto+linea;
+                texto= texto+linea+";";
             }
             return texto;
 
