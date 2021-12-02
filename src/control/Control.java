@@ -76,9 +76,9 @@ public class Control {
         
     }
 
-    private void agregarMateria(String cedula, Materia materia) {
+    private void agregarMateriaPorEstudiante(String cedula, String codigoMateria,String nombreMateria) {
         Estudiante estudiante = obtenerEstudiantPorCedula(cedula);
-        estudiante.inscribirMateria(materia);
+        estudiante.inscribirMateria(codigoMateria,nombreMateria);
     }
     
     private Estudiante obtenerEstudiantPorCedula(String cedula)

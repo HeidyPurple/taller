@@ -54,11 +54,9 @@ public class Estudiante {
         return this.listaMaterias.size();
     }
  
-    public void inscribirMateria(Materia materia){
-        if(materia!= null){
-            this.listaMaterias.add(materia);
-        }
-        
+
+    public void inscribirMateria(String codigoMateria, String nombreMateria) {
+           this.listaMaterias.add(new Materia(codigoMateria, nombreMateria));
     }
     
 }
