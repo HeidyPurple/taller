@@ -97,44 +97,7 @@ public class Control {
         return totalMateriasPorEstudiante;
 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
+   
     private boolean validarCedEstudiante(String cedula) {
         boolean  existEstudiante = false;
         for (Estudiante estudiante : estudiantes) {
