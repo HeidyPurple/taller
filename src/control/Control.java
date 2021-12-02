@@ -28,26 +28,65 @@ public class Control {
         this.cargaArchivo = new CargarArchivo();
     }
 
-    public void cargarArchivo(String rutaArchivo) throws CargarArchivoException {
+    public ArrayList cargarArchivo(String rutaArchivo) throws CargarArchivoException {
 
         String listaArchivo;
+        ArrayList<String> listaErrores = new ArrayList();
 
         try {
             listaArchivo = this.cargaArchivo.cargarArchivo(rutaArchivo);
 
             String[] listaPalabra = listaArchivo.split("\\;");
-
+            String[] datosEstudiante;
+            String cedulaEstudiante;
+            String nombreEstudiante;
+            String codigoMateria;
+            String nombreMateria;
+            
             for (int i = 0; i < listaPalabra.length; i++) {
-
+                
+                datosEstudiante = listaPalabra[i].split("\\,");
+                cedulaEstudiante= datosEstudiante[0];
+                nombreEstudiante= datosEstudiante[1];
+                codigoMateria= datosEstudiante[2];
+                nombreMateria= datosEstudiante[3];
+                
+                listaErrores=this.validarDatosArchivoPorEstudiante(cedulaEstudiante, nombreEstudiante,
+                        codigoMateria, nombreMateria);
             }
+            
 
         } catch (Exception e) {
             throw new CargarArchivoException("No se encontro la ruta especidicada");
         }
+        return listaErrores;
+        
     }
 
-    private ArrayList validarDatosArchivo(String info) {
-        return null;
+    private ArrayList validarDatosArchivoPorEstudiante(String cedula,String nombreEstudiante, 
+            String codigo, String nombreMateria) {
+        ArrayList <String> mensajesValidacion = new ArrayList();
+        boolean validarCedula;
+        boolean validarMateria;
+        validarCedula= this.validarCedEstudiante(cedula);
+        
+        if (validarCedula == false){
+            mensajesValidacion.add("El estudiante "+nombreEstudiante+" Ya se encuentra "
+                    + "registrado en el sistema");
+        }else{
+            this.agregarEstudiante(cedula, nombreEstudiante);
+        }
+        
+        validarMateria = this.validarMateriaPorEstudiante(codigo, cedula);
+        
+        if (validarMateria == false){
+            mensajesValidacion.add("El estudiante "+nombreEstudiante+" Ya posee "
+                    + "la materia"+nombreMateria+" inscrita");
+        }else{
+            this.agregarMateriaPorEstudiante(cedula, codigo, nombreMateria);
+        }
+                
+        return mensajesValidacion;
     }
 
     public ArrayList totalMateriasPorEstudiante() {
@@ -58,6 +97,43 @@ public class Control {
         return totalMateriasPorEstudiante;
 
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     private boolean validarCedEstudiante(String cedula) {
         return false;
