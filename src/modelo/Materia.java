@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Materia {
     private String codigo;
     private String nombre;
-    private ArrayList listaMaterias;
+   
 
     public Materia(String codigo, String nombre) {
         this.codigo = codigo;
