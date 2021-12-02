@@ -21,6 +21,7 @@ public class Estudiante {
     public Estudiante(String cedula, String nombre) {
         this.cedula = cedula;
         this.nombre = nombre;
+        listaMaterias = new ArrayList<>();
     }
     /**
      * @return the cedula
@@ -54,6 +55,9 @@ public class Estudiante {
     }
  
     public void inscribirMateria(Materia materia){
+        if(materia!= null){
+            this.listaMaterias.add(materia);
+        }
         
     }
     
