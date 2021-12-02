@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Estudiante {
     private String cedula;
     private String nombre;
-    private ArrayList listaEstudiantes;
+    private ArrayList<Materia> listaMaterias;
     
     public Estudiante(String cedula, String nombre) {
         this.cedula = cedula;
@@ -38,13 +38,20 @@ public class Estudiante {
         return nombre;
     }
     
-    public ArrayList validarCodMateria(String codigo){
-        return null;
+    public boolean validarCodMateria(String codigo){
+        boolean  existeMateria = false;
+        for (Materia materia : listaMaterias) {
+            if(materia.getCodigo().equals(codigo)){
+                existeMateria = true;
+            }
+        }
+        
+       return existeMateria; 
     }
     
-    public ArrayList materiasInscritas(){
-    return null;
-}
+    public int cantidadMateriasInscritas(){
+        return this.listaMaterias.size();
+    }
  
     public void inscribirMateria(Materia materia){
         
