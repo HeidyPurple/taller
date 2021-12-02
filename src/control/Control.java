@@ -5,10 +5,39 @@
  */
 package control;
 
+import java.util.ArrayList;
+import modelo.Materia;
+
 /**
  *
  * @author jeffr
+ * version 1
  */
 public class Control {
+    
+    public void cargarArchivo(String rutaArchivo){
+        
+    }
+    
+    public ArrayList totalMateriasPorEstudiantes(){
+      return null;  
+    }
+    
+    private boolean validarCedEstudiante(String cedula){
+        return false;
+    }
+    
+    private  boolean validarCodMateria(String codigo){
+        return false;
+    }
+    
+    private ArrayList validarDatosArchivo(String info){
+        return null;
+    }
+    
+    private void agregarMateria(String cedula, Materia materia){
+        
+    }
+    
     
 }
